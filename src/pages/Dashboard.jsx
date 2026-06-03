@@ -1,17 +1,11 @@
-import {
-  useEffect,
-  useState,
-  useMemo,
-  useCallback,
-} from "react";
-
+import { useEffect, useState, useMemo, useCallback } from "react";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import StatsCard from "../components/cards/StatsCard";
 import UsersTable from "../components/tables/UsersTable";
 import UsersAnalyticsChart from "../components/charts/UsersAnalyticsChart";
 import SkeletonCard from "../components/ui/SkeletonCard";
 import TableSkeleton from "../components/ui/TableSkeleton";
-
+import EditUserModal from "../components/users/EditUserModal";
 import API from "../services/api";
 
 function Dashboard() {
@@ -22,6 +16,32 @@ function Dashboard() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const usersPerPage = 5;
+
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleEdit = (user) => {
+    setSelectedUser(user);
+    setIsModalOpen(true);
+  };
+
+  const handleDelete = (id) => {
+    const updatedUsers = users.filter(
+      (user) => user.id !== id
+    );
+
+    setUsers(updatedUsers);
+  };
+
+  const handleSaveUser = () => {
+    const updatedUsers = users.map((u) =>
+      u.id === selectedUser.id ? selectedUser : u
+    );
+
+    setUsers(updatedUsers);
+    setIsModalOpen(false);
+    setSelectedUser(null);
+  };
 
   // Search Handler
   const handleSearch = useCallback((e) => {
@@ -187,7 +207,11 @@ function Dashboard() {
 
         {/* Users Table */}
         {currentUsers.length > 0 ? (
-          <UsersTable users={currentUsers} />
+          <UsersTable
+            users={currentUsers}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
         ) : (
           <div className="bg-white p-10 rounded-2xl shadow-md text-center">
 
@@ -226,6 +250,18 @@ function Dashboard() {
           </button>
 
         </div>
+        <EditUserModal
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false);
+            setSelectedUser(null);
+          }}
+          selectedUser={selectedUser}
+          setSelectedUser={setSelectedUser}
+          handleSaveUser={handleSaveUser}
+          updating={false}
+          darkMode={false}
+        />
 
       </div>
 

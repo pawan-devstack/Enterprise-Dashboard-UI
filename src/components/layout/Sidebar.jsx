@@ -1,13 +1,5 @@
-import {
-  LayoutDashboard,
-  Users,
-  Settings,
-  User,
-  X,
-} from "lucide-react";
-
+import { LayoutDashboard, Users, Settings, User, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
-
 import { useSelector } from "react-redux";
 
 const menuItems = [
@@ -81,22 +73,20 @@ function Sidebar({
           border-r shadow-sm p-5
           transform transition-all duration-300
 
-          ${
-            darkMode
-              ? `
+          ${darkMode
+            ? `
                 bg-gray-900
                 border-gray-800
               `
-              : `
+            : `
                 bg-white
                 border-gray-200
               `
           }
 
-          ${
-            sidebarOpen
-              ? "translate-x-0"
-              : "-translate-x-full lg:translate-x-0"
+          ${sidebarOpen
+            ? "translate-x-0"
+            : "-translate-x-full lg:translate-x-0"
           }
         `}
       >
@@ -114,10 +104,9 @@ function Sidebar({
               className={`
                 text-sm mt-1
 
-                ${
-                  darkMode
-                    ? "text-gray-400"
-                    : "text-gray-500"
+                ${darkMode
+                  ? "text-gray-400"
+                  : "text-gray-500"
                 }
               `}
             >
@@ -157,10 +146,9 @@ function Sidebar({
                 p-3 rounded-xl
                 transition-all duration-300
 
-                ${
-                  isActive
-                    ? "bg-blue-600 text-white"
-                    : darkMode
+                ${isActive
+                  ? "bg-blue-600 text-white"
+                  : darkMode
                     ? `
                       text-gray-300
                       hover:bg-gray-800

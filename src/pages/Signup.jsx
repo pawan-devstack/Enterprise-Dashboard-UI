@@ -1,51 +1,69 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { login } from "../features/auth/authSlice";
 import toast from "react-hot-toast";
 
-function Login() {
-  const dispatch = useDispatch();
+function Signup() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
+    confirmPassword: "",
     role: "user",
   });
 
-  const handleLogin = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
 
-    if (!formData.email || !formData.password) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.password ||
+      !formData.confirmPassword
+    ) {
       return toast.error("All fields are required");
     }
 
-    dispatch(
-      login({
-        name: "Pawan",
-        role: formData.role,
-        email: formData.email,
-      })
-    );
+    if (
+      formData.password !==
+      formData.confirmPassword
+    ) {
+      return toast.error(
+        "Passwords do not match"
+      );
+    }
 
-    toast.success("Login Successful");
-    navigate("/");
+    toast.success("Account Created");
+    navigate("/login");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-indigo-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-blue-100 px-4">
       <div className="bg-white w-full max-w-md p-8 rounded-3xl shadow-xl">
 
         <h1 className="text-3xl font-bold text-center mb-2">
-          Welcome Back
+          Create Account
         </h1>
 
         <p className="text-center text-gray-500 mb-8">
-          Login to your account
+          Join the dashboard platform
         </p>
 
-        <form onSubmit={handleLogin} className="space-y-5">
+        <form onSubmit={handleSignup} className="space-y-5">
+
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                name: e.target.value,
+              })
+            }
+            className="w-full border p-3 rounded-xl"
+          />
 
           <input
             type="email"
@@ -73,6 +91,20 @@ function Login() {
             className="w-full border p-3 rounded-xl"
           />
 
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={formData.confirmPassword}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                confirmPassword:
+                  e.target.value,
+              })
+            }
+            className="w-full border p-3 rounded-xl"
+          />
+
           <select
             value={formData.role}
             onChange={(e) =>
@@ -89,20 +121,20 @@ function Login() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl"
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl"
           >
-            Login
+            Create Account
           </button>
 
         </form>
 
         <p className="text-center mt-6 text-gray-500">
-          Don't have an account?{" "}
+          Already have an account?{" "}
           <Link
-            to="/signup"
-            className="text-blue-600 font-semibold"
+            to="/login"
+            className="text-indigo-600 font-semibold"
           >
-            Sign Up
+            Login
           </Link>
         </p>
 
@@ -111,4 +143,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

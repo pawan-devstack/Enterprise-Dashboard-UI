@@ -1,9 +1,4 @@
-function UsersPagination({
-  currentPage,
-  totalPages,
-  setCurrentPage,
-  darkMode,
-}) {
+function UsersPagination({ currentPage, totalPages, setCurrentPage, darkMode }) {
   return (
     <div className="flex justify-center items-center gap-4">
       <button

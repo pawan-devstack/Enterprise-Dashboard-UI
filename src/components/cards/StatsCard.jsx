@@ -12,10 +12,9 @@ function StatsCard({ title, value }) {
         p-6 rounded-2xl shadow-md
         border transition-all duration-300
 
-        ${
-          darkMode
-            ? "bg-gray-900 border-gray-800"
-            : "bg-white border-gray-200"
+        ${darkMode
+          ? "bg-gray-900 border-gray-800"
+          : "bg-white border-gray-200"
         }
       `}
     >
@@ -24,10 +23,9 @@ function StatsCard({ title, value }) {
         className={`
           text-lg
 
-          ${
-            darkMode
-              ? "text-gray-400"
-              : "text-gray-500"
+          ${darkMode
+            ? "text-gray-400"
+            : "text-gray-500"
           }
         `}
       >
@@ -38,10 +36,9 @@ function StatsCard({ title, value }) {
         className={`
           text-3xl font-bold mt-2
 
-          ${
-            darkMode
-              ? "text-white"
-              : "text-black"
+          ${darkMode
+            ? "text-white"
+            : "text-black"
           }
         `}
       >

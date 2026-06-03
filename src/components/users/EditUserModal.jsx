@@ -1,14 +1,6 @@
 import CustomModal from "../ui/CustomModal";
 
-function EditUserModal({
-  isOpen,
-  onClose,
-  selectedUser,
-  setSelectedUser,
-  handleSaveUser,
-  updating,
-  darkMode,
-}) {
+function EditUserModal({ isOpen, onClose, selectedUser, setSelectedUser, handleSaveUser, updating, darkMode }) {
   if (!selectedUser) return null;
 
   return (
@@ -29,15 +21,14 @@ function EditUserModal({
           }
           className={`
             w-full p-3 rounded-lg border
-            ${
-              darkMode
-                ? `
+            ${darkMode
+              ? `
                   bg-gray-800
                   border-gray-700
                   text-white
                   placeholder:text-gray-400
                 `
-                : `
+              : `
                   bg-white
                   border-gray-300
                   text-black
@@ -57,15 +48,14 @@ function EditUserModal({
           }
           className={`
             w-full p-3 rounded-lg border
-            ${
-              darkMode
-                ? `
+            ${darkMode
+              ? `
                   bg-gray-800
                   border-gray-700
                   text-white
                   placeholder:text-gray-400
                 `
-                : `
+              : `
                   bg-white
                   border-gray-300
                   text-black

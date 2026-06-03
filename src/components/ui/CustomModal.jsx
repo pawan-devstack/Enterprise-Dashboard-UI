@@ -30,13 +30,12 @@ function CustomModal({
           border
           transition-all duration-300
 
-          ${
-            darkMode
-              ? `
+          ${darkMode
+            ? `
                 bg-gray-900
                 border-gray-800
               `
-              : `
+            : `
                 bg-white
                 border-gray-200
               `
@@ -50,10 +49,9 @@ function CustomModal({
             flex items-center justify-between
             p-5 border-b
 
-            ${
-              darkMode
-                ? "border-gray-800"
-                : "border-gray-200"
+            ${darkMode
+              ? "border-gray-800"
+              : "border-gray-200"
             }
           `}
         >
@@ -62,10 +60,9 @@ function CustomModal({
             className={`
               text-xl font-bold
 
-              ${
-                darkMode
-                  ? "text-white"
-                  : "text-black"
+              ${darkMode
+                ? "text-white"
+                : "text-black"
               }
             `}
           >
@@ -77,13 +74,12 @@ function CustomModal({
             className={`
               p-2 rounded-lg transition-all
 
-              ${
-                darkMode
-                  ? `
+              ${darkMode
+                ? `
                     text-gray-400
                     hover:bg-gray-800
                   `
-                  : `
+                : `
                     text-gray-500
                     hover:bg-gray-100
                   `

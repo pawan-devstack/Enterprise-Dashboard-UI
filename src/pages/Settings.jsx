@@ -1,9 +1,6 @@
 import { useState } from "react";
-
 import { useSelector } from "react-redux";
-
 import DashboardLayout from "../components/layout/DashboardLayout";
-
 import toast from "react-hot-toast";
 
 function Settings() {
@@ -56,10 +53,9 @@ function Settings() {
             className={`
               text-4xl font-bold
 
-              ${
-                darkMode
-                  ? "text-white"
-                  : "text-black"
+              ${darkMode
+                ? "text-white"
+                : "text-black"
               }
             `}
           >
@@ -70,10 +66,9 @@ function Settings() {
             className={`
               mt-2
 
-              ${
-                darkMode
-                  ? "text-gray-400"
-                  : "text-gray-500"
+              ${darkMode
+                ? "text-gray-400"
+                : "text-gray-500"
               }
             `}
           >
@@ -89,13 +84,12 @@ function Settings() {
             p-8 rounded-2xl shadow-md border
             transition-all duration-300
 
-            ${
-              darkMode
-                ? `
+            ${darkMode
+              ? `
                   bg-gray-900
                   border-gray-800
                 `
-                : `
+              : `
                   bg-white
                   border-gray-200
                 `
@@ -115,10 +109,9 @@ function Settings() {
                 className={`
                   block mb-2 font-medium
 
-                  ${
-                    darkMode
-                      ? "text-gray-300"
-                      : "text-gray-700"
+                  ${darkMode
+                    ? "text-gray-300"
+                    : "text-gray-700"
                   }
                 `}
               >
@@ -135,14 +128,13 @@ function Settings() {
                   border outline-none
                   transition-all duration-300
 
-                  ${
-                    darkMode
-                      ? `
+                  ${darkMode
+                    ? `
                         bg-gray-800
                         border-gray-700
                         text-white
                       `
-                      : `
+                    : `
                         bg-white
                         border-gray-300
                         text-black
@@ -160,10 +152,9 @@ function Settings() {
                 className={`
                   block mb-2 font-medium
 
-                  ${
-                    darkMode
-                      ? "text-gray-300"
-                      : "text-gray-700"
+                  ${darkMode
+                    ? "text-gray-300"
+                    : "text-gray-700"
                   }
                 `}
               >
@@ -180,14 +171,13 @@ function Settings() {
                   border outline-none
                   transition-all duration-300
 
-                  ${
-                    darkMode
-                      ? `
+                  ${darkMode
+                    ? `
                         bg-gray-800
                         border-gray-700
                         text-white
                       `
-                      : `
+                    : `
                         bg-white
                         border-gray-300
                         text-black
@@ -204,13 +194,12 @@ function Settings() {
                 flex items-center justify-between
                 p-4 rounded-xl border
 
-                ${
-                  darkMode
-                    ? `
+                ${darkMode
+                  ? `
                       bg-gray-800
                       border-gray-700
                     `
-                    : `
+                  : `
                       bg-gray-50
                       border-gray-200
                     `
@@ -258,13 +247,12 @@ function Settings() {
                 flex items-center justify-between
                 p-4 rounded-xl border
 
-                ${
-                  darkMode
-                    ? `
+                ${darkMode
+                  ? `
                       bg-gray-800
                       border-gray-700
                     `
-                    : `
+                  : `
                       bg-gray-50
                       border-gray-200
                     `

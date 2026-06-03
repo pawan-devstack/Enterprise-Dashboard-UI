@@ -1,13 +1,4 @@
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid,
-} from "recharts";
-
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import { useSelector } from "react-redux";
 
 const data = [
@@ -31,10 +22,9 @@ function UsersAnalyticsChart() {
         p-6 rounded-2xl shadow-md border
         transition-all duration-300
 
-        ${
-          darkMode
-            ? "bg-gray-900 border-gray-800"
-            : "bg-white border-gray-200"
+        ${darkMode
+          ? "bg-gray-900 border-gray-800"
+          : "bg-white border-gray-200"
         }
       `}
     >
@@ -46,10 +36,9 @@ function UsersAnalyticsChart() {
           className={`
             text-2xl font-bold
 
-            ${
-              darkMode
-                ? "text-white"
-                : "text-black"
+            ${darkMode
+              ? "text-white"
+              : "text-black"
             }
           `}
         >
@@ -60,10 +49,9 @@ function UsersAnalyticsChart() {
           className={`
             mt-1
 
-            ${
-              darkMode
-                ? "text-gray-400"
-                : "text-gray-500"
+            ${darkMode
+              ? "text-gray-400"
+              : "text-gray-500"
             }
           `}
         >

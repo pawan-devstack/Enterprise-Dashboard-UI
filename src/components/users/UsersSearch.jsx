@@ -1,9 +1,4 @@
-function UsersSearch({
-  search,
-  handleSearch,
-  onAddUser,
-  darkMode,
-}) {
+function UsersSearch({ search, handleSearch, onAddUser, darkMode }) {
   return (
     <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
       <input
@@ -16,15 +11,14 @@ function UsersSearch({
           border outline-none
           w-full md:w-[320px]
 
-          ${
-            darkMode
-              ? `
+          ${darkMode
+            ? `
                 bg-gray-900
                 border-gray-700
                 text-white
                 placeholder:text-gray-400
               `
-              : `
+            : `
                 bg-white
                 border-gray-300
                 text-black

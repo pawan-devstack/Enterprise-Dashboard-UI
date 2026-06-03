@@ -11,13 +11,15 @@ function DashboardLayout({ children }) {
 
   return (
     <div
-      className={`min-h-screen flex transition-all duration-300
+      className={`
+      h-screen flex overflow-hidden
+      transition-all duration-300
       ${darkMode
           ? "bg-gray-900 text-white"
           : "bg-gray-100 text-black"
-        }`}
+        }
+    `}
     >
-
       {/* Sidebar */}
       <Sidebar
         sidebarOpen={sidebarOpen}
@@ -25,16 +27,15 @@ function DashboardLayout({ children }) {
       />
 
       {/* Main Content */}
-      <div className="flex-1">
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <Navbar
+          setSidebarOpen={setSidebarOpen}
+        />
 
-        <Navbar setSidebarOpen={setSidebarOpen} />
-
-        <main className="p-6">
+        <main className="flex-1 overflow-y-auto p-6">
           {children}
         </main>
-
       </div>
-
     </div>
   );
 }

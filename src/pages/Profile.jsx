@@ -1,15 +1,8 @@
-import { useState } from "react";
-
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Briefcase,
-} from "lucide-react";
-
+import { Mail, Phone, MapPin, Briefcase} from "lucide-react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../features/auth/authSlice";
+import { useState, useEffect } from "react";
 import DashboardLayout from "../components/layout/DashboardLayout";
 
 import toast from "react-hot-toast";
@@ -33,7 +26,18 @@ function Profile() {
     location: "Indore, India",
     role: user?.role || "user",
     bio: "Frontend Developer passionate about React and enterprise dashboards.",
+
   });
+
+  useEffect(() => {
+    if (user) {
+      setProfile((prev) => ({
+        ...prev,
+        name: user.name,
+        role: user.role,
+      }));
+    }
+  }, [user]);
 
   // Handle Input Change
   const handleChange = (e) => {

@@ -1,14 +1,6 @@
 import CustomModal from "../ui/CustomModal";
 
-function AddUserModal({
-  isOpen,
-  onClose,
-  newUser,
-  setNewUser,
-  handleAddUser,
-  saving,
-  darkMode,
-}) {
+function AddUserModal({ isOpen, onClose, newUser, setNewUser, handleAddUser, saving, darkMode }) {
   return (
     <CustomModal
       isOpen={isOpen}
@@ -28,15 +20,14 @@ function AddUserModal({
           }
           className={`
             w-full p-3 rounded-lg border
-            ${
-              darkMode
-                ? `
+            ${darkMode
+              ? `
                   bg-gray-800
                   border-gray-700
                   text-white
                   placeholder:text-gray-400
                 `
-                : `
+              : `
                   bg-white
                   border-gray-300
                   text-black
@@ -57,15 +48,14 @@ function AddUserModal({
           }
           className={`
             w-full p-3 rounded-lg border
-            ${
-              darkMode
-                ? `
+            ${darkMode
+              ? `
                   bg-gray-800
                   border-gray-700
                   text-white
                   placeholder:text-gray-400
                 `
-                : `
+              : `
                   bg-white
                   border-gray-300
                   text-black
@@ -89,15 +79,14 @@ function AddUserModal({
           }
           className={`
             w-full p-3 rounded-lg border
-            ${
-              darkMode
-                ? `
+            ${darkMode
+              ? `
                   bg-gray-800
                   border-gray-700
                   text-white
                   placeholder:text-gray-400
                 `
-                : `
+              : `
                   bg-white
                   border-gray-300
                   text-black

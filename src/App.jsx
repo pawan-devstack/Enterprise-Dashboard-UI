@@ -1,10 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
 import Dashboard from "./pages/Dashboard";
 import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import Profile from "./pages/Profile";
+
 import NotFound from "./pages/NotFound";
 import Unauthorized from "./pages/Unauthorized";
 
@@ -17,6 +20,8 @@ function App() {
 
       {/* Public Routes */}
       <Route path="/login" element={<Login />} />
+
+      <Route path="/signup" element={<Signup />} />
 
       <Route
         path="/unauthorized"
@@ -37,7 +42,7 @@ function App() {
           element={<Profile />}
         />
 
-        {/* Admin Only Routes */}
+        {/* Admin Routes */}
         <Route element={<AdminRoute />}>
 
           <Route
