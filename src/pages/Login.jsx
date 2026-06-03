@@ -21,15 +21,34 @@ function Login() {
       return toast.error("All fields are required");
     }
 
-    dispatch(
-      login({
-        name: "Pawan",
-        role: formData.role,
-        email: formData.email,
-      })
+    const savedUser = JSON.parse(
+      localStorage.getItem("registeredUser")
+    );
+
+    if (!savedUser) {
+      return toast.error(
+        "Please create an account first"
+      );
+    }
+
+    if (
+      savedUser.email !== formData.email ||
+      savedUser.password !== formData.password
+    ) {
+      return toast.error(
+        "Invalid email or password"
+      );
+    }
+
+    dispatch(login(savedUser));
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify(savedUser)
     );
 
     toast.success("Login Successful");
+
     navigate("/");
   };
 
@@ -72,20 +91,6 @@ function Login() {
             }
             className="w-full border p-3 rounded-xl"
           />
-
-          <select
-            value={formData.role}
-            onChange={(e) =>
-              setFormData({
-                ...formData,
-                role: e.target.value,
-              })
-            }
-            className="w-full border p-3 rounded-xl"
-          >
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
 
           <button
             type="submit"

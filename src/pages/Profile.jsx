@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Briefcase} from "lucide-react";
+import { Mail, Phone, MapPin, Briefcase } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../features/auth/authSlice";
@@ -20,22 +20,24 @@ function Profile() {
 
   // Profile State
   const [profile, setProfile] = useState({
-    name: user?.name || "Pawan Chourasiya",
-    email: "pawan@example.com",
-    phone: "+91 9876543210",
-    location: "Indore, India",
+    name: user?.name || "",
+    email: user?.email || "",
+    phone: user?.phone || "",
+    location: user?.location || "",
     role: user?.role || "user",
-    bio: "Frontend Developer passionate about React and enterprise dashboards.",
-
+    bio: user?.bio || "",
   });
 
   useEffect(() => {
     if (user) {
-      setProfile((prev) => ({
-        ...prev,
-        name: user.name,
-        role: user.role,
-      }));
+      setProfile({
+        name: user.name || "",
+        email: user.email || "",
+        phone: user.phone || "",
+        location: user.location || "",
+        role: user.role || "user",
+        bio: user.bio || "",
+      });
     }
   }, [user]);
 
@@ -54,8 +56,12 @@ function Profile() {
   const handleSave = (e) => {
     e.preventDefault();
 
-    // Update Redux + localStorage
     dispatch(updateProfile(profile));
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify(profile)
+    );
 
     toast.success(
       "Profile Updated Successfully"

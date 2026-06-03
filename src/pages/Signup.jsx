@@ -34,7 +34,19 @@ function Signup() {
       );
     }
 
-    toast.success("Account Created");
+    const userData = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      password: formData.password,
+      role: formData.role,
+    };
+
+    localStorage.setItem(
+      "registeredUser",
+      JSON.stringify(userData)
+    );
+
+    toast.success("Account Created Successfully");
     navigate("/login");
   };
 
